@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#175cd3">
+<meta name="description" content="Apoio à decisão para referenciação de doentes à Consulta de Nefrologia, segundo PS.NEFR.046.">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<title>NefroRef • Referenciação</title>
+<style>
+:root{--blue:#175cd3;--navy:#17365d;--bg:#f5f8fc;--card:#fff;--text:#172033;--muted:#667085;--line:#dbe3ef;--green:#d9f2b0;--pink:#f4dddd;--yellow:#fff200;--orange:#f28c3a;--red:#ff1515}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text)}
+.app{min-height:100vh}.top{background:linear-gradient(135deg,#123b82,#175cd3);color:white;padding:22px 18px 20px;position:sticky;top:0;z-index:10;box-shadow:0 4px 18px #123b8225}
+.top h1{font-size:23px;margin:0 0 5px}.top p{margin:0;opacity:.88;font-size:13px}.wrap{max-width:900px;margin:auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:0 0 14px;box-shadow:0 3px 12px #102a4d0b}
+h2{font-size:18px;margin:0 0 12px}h3{font-size:15px;margin:16px 0 9px}.intro{font-size:14px;line-height:1.55;color:#475467}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}@media(max-width:620px){.grid{grid-template-columns:1fr}}
+label{display:block;font-size:13px;font-weight:700;color:#344054}input,select,button{font:inherit}input[type=number],select{width:100%;margin-top:6px;border:1px solid #c9d4e2;border-radius:11px;padding:11px;background:white;color:var(--text)}
+.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}@media(max-width:620px){.checks{grid-template-columns:1fr}}
+.check{display:flex;align-items:flex-start;gap:9px;padding:10px;border:1px solid var(--line);border-radius:11px;background:#fbfcfe;font-weight:600;font-size:13px}.check input{margin-top:2px}
+.actions{display:flex;gap:9px;flex-wrap:wrap}.primary{background:var(--blue);color:white;border:0;border-radius:12px;padding:12px 18px;font-weight:800;cursor:pointer}.secondary{background:white;color:var(--navy);border:1px solid #c9d4e2;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer}
+.result{display:none;border-radius:18px;padding:18px;margin-bottom:14px;border:2px solid #b7c4d6}.result.show{display:block}.badge{display:inline-block;padding:7px 11px;border-radius:999px;font-weight:900;font-size:13px}.result h2{margin:10px 0 5px}.reason{font-size:14px;line-height:1.5}.small{font-size:12px;color:var(--muted);line-height:1.5}.danger{background:#fff2f2;border-color:#ffb3b3}.warn{background:#fff8e9;border-color:#ffd48a}.success{background:#eff9e4;border-color:#b9dd8b}
+.pills{display:flex;gap:7px;flex-wrap:wrap}.pill{font-size:12px;background:#eef4ff;border:1px solid #d5e2ff;border-radius:999px;padding:5px 9px}
+.note{background:#f8fafc;border-left:4px solid var(--blue);padding:10px 12px;font-size:13px;line-height:1.5}
+details{border-top:1px solid var(--line);padding:12px 0}details:first-of-type{border-top:0}summary{cursor:pointer;font-weight:800}
+.matrix{overflow:auto}.matrix table{border-collapse:collapse;width:100%;min-width:720px;font-size:12px}.matrix th,.matrix td{border:1px solid #9aa8b8;padding:7px;text-align:center}.matrix th{background:#edf2f7}.c-green{background:var(--green)}.c-pink{background:var(--pink)}.c-yellow{background:var(--yellow)}.c-orange{background:var(--orange)}.c-red{background:var(--red);color:white;font-weight:800}
+footer{font-size:11px;color:#667085;padding:10px 4px 30px;line-height:1.5}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top"><h1>🩺 NefroRef</h1><p>Definição da referenciação à Consulta de Nefrologia</p></header>
+<main class="wrap">
+<section class="card">
+<h2>Triagem rápida</h2>
+<p class="intro">Preencha os dados relevantes. A aplicação aplica os critérios do documento <b>PS.NEFR.046 — Critérios de referenciação dos Cuidados de Saúde Primários para a Nefrologia Hospitalar da ULSA</b>, versão 01 (27/09/2025).</p>
+<div class="note"><b>Atenção:</b> esta ferramenta é um apoio à decisão baseado no protocolo; não substitui avaliação clínica. Em situações não previstas ou dúvida, o documento recomenda contacto com o Serviço de Nefrologia.</div>
+</section>
+
+<section class="card">
+<h2>1 · Situações que podem exigir urgência</h2>
+<div class="checks">
+<label class="check"><input id="kSevere" type="checkbox"> K+ >6,0 mEq/L + alterações ECG de hipercaliemia grave</label>
+<label class="check"><input id="k65" type="checkbox"> K+ >6,5 mEq/L (mesmo sem alterações ECG)</label>
+<label class="check"><input id="uremia" type="checkbox"> Sintomatologia urémica em doente com DRC conhecida</label>
+<label class="check"><input id="overload" type="checkbox"> Sobrecarga hídrica</label>
+<label class="check"><input id="pyeloSingle" type="checkbox"> Pielonefrite aguda em rim único</label>
+<label class="check"><input id="aki3" type="checkbox"> LRA KDIGO ≥3 / insuficiência renal rapidamente progressiva de novo sem avaliação por Nefrologia</label>
+<label class="check"><input id="malignantHTA" type="checkbox"> Hipertensão arterial maligna</label>
+<label class="check"><input id="obstructStone" type="checkbox"> Litíase com carácter obstrutivo</label>
+<label class="check"><input id="severeElectro" type="checkbox"> Alteração hidroelectrolítica/ácido-base grave e/ou sintomática</label>
+</div>
+</section>
+
+<section class="card">
+<h2>2 · Doença renal crónica</h2>
+<div class="grid">
+<label>Idade (anos)<input id="age" type="number" min="18" max="120" placeholder="ex.: 65"></label>
+<label>TFGe (mL/min/1,73 m²)<input id="egfr" type="number" min="1" max="200" step="0.1" placeholder="ex.: 42"></label>
+<label>RAC (mg/g)<input id="acr" type="number" min="0" step="1" placeholder="ex.: 450"></label>
+<label>RAC / albuminúria disponível?<select id="acrKnown"><option value="yes">Sim</option><option value="no">Não</option></select></label>
+<label>Proteinúria (g/g), se disponível<input id="pcr" type="number" min="0" step="0.01" placeholder="ex.: 1.2"></label>
+<label>KFRE 5 anos (%), se já calculado<input id="kfre" type="number" min="0" max="100" step="0.1" placeholder="opcional"></label>
+</div>
+<h3>Contexto</h3>
+<div class="checks">
+<label class="check"><input id="diabetes" type="checkbox"> Diabetes / apresentação crónica</label>
+<label class="check"><input id="newPresentation" type="checkbox"> Apresentação nova</label>
+<label class="check"><input id="hematoProtein" type="checkbox"> Hematoproteinúria</label>
+<label class="check"><input id="rapidDecline" type="checkbox"> Diminuição >30% da TFGe em <6 meses</label>
+</div>
+</section>
+
+<section class="card">
+<h2>3 · Outros critérios de referenciação</h2>
+<div class="checks">
+<label class="check"><input id="hematuria" type="checkbox"> Hematúria microscópica de causa não urológica</label>
+<label class="check"><input id="glyco" type="checkbox"> Glicosúria normoglicémica / aminoacidúria / cistinúria de causa não esclarecida</label>
+<label class="check"><input id="electro" type="checkbox"> Alteração hidroelectrolítica ou ácido-base (não grave/sintomática)</label>
+<label class="check"><input id="adpkd" type="checkbox"> Suspeita/diagnóstico de ADPKD ou doença renal quística familiar/genética</label>
+<label class="check"><input id="nephrocalc" type="checkbox"> Nefrocalcinose</label>
+<label class="check"><input id="hereditary" type="checkbox"> Suspeita de outra doença renal hereditária</label>
+<label class="check"><input id="stone2" type="checkbox"> ≥2 episódios de cólica renal nos últimos 2 anos</label>
+<label class="check"><input id="singleKidneyStone" type="checkbox"> Litíase em rim único</label>
+<label class="check"><input id="hta4" type="checkbox"> HTA não controlada com 4 hipotensores em dose adequada</label>
+<label class="check"><input id="htaYoung" type="checkbox"> HTA de causa não esclarecida em idade <35 anos</label>
+<label class="check"><input id="htaHypoK" type="checkbox"> HTA associada a hipocaliemia</label>
+<label class="check"><input id="htaCr" type="checkbox"> Subida da creatininémia >0,4 mg/dL nos primeiros 2 meses após IECA/ARA</label>
+<label class="check"><input id="htaBruit" type="checkbox"> Sopro arterial abdominal ou lombar</label>
+</div>
+</section>
+
+<section class="card">
+<h2>4 · Situações de exclusão / não referenciação</h2>
+<div class="checks">
+<label class="check"><input id="oldStable" type="checkbox"> >80 anos + função renal estável ou deterioração lenta (<5 mL/min/1,73 m²/ano), sem proteinúria, Hb <10 g/dL ou outros critérios</label>
+<label class="check"><input id="transientProtein" type="checkbox"> Proteinúria/albuminúria transitória ou associada a ITU, febre, menstruação, processo ginecológico exsudativo ou esforço intenso</label>
+<label class="check"><input id="simpleCyst" type="checkbox"> Quisto(s) simples sem critérios de DRPAD</label>
+<label class="check"><input id="renalMass" type="checkbox"> Massa renal / angiomiolipoma (sem outros critérios)</label>
+<label class="check"><input id="urinary" type="checkbox"> Retenção ou incontinência urinária</label>
+<label class="check"><input id="urologicHematuria" type="checkbox"> Hematúria de causa urológica ou associada a ITU</label>
+<label class="check"><input id="isolatedColic" type="checkbox"> Episódio de cólica renal isolada e não complicado</label>
+<label class="check"><input id="hd" type="checkbox"> Doente em hemodiálise</label>
+<label class="check"><input id="transplant" type="checkbox"> Doente transplantado</label>
+</div>
+<p class="small">O documento indica discussão de doentes em hemodiálise com as Unidades de HD e de transplantados com as Unidades de transplante.</p>
+</section>
+
+<div class="actions"><button class="primary" onclick="evaluate()">Definir referenciação</button><button class="secondary" onclick="resetAll()">Limpar</button></div>
+
+<section id="result" class="result">
+<div id="badge" class="badge"></div>
+<h2 id="resultTitle"></h2>
+<div id="reason" class="reason"></div>
+<div id="followup" class="note" style="margin-top:12px"></div>
+</section>
+
+<section class="card">
+<h2>Critérios de referência</h2>
+<details><summary>Classificação por TFGe + RAC</summary>
+<div class="matrix"><table><thead><tr><th>TFGe</th><th colspan="3">19–39 anos</th><th colspan="3">40–64 anos</th><th colspan="3">65–80 anos</th><th colspan="3">&gt;80 anos</th></tr>
+<tr><th></th><th>&lt;30</th><th>30–299</th><th>&gt;300</th><th>&lt;30</th><th>30–299</th><th>&gt;300</th><th>&lt;30</th><th>30–299</th><th>&gt;300</th><th>&lt;30</th><th>30–299</th><th>&gt;300</th></tr></thead>
+<tbody id="matrixBody"></tbody></table></div>
+<p class="small">Cores do protocolo: verde = não referenciar; rosa = teleconsulta; amarelo = referenciação normal; laranja = urgente; vermelho = muito urgente.</p>
+</details>
+<details><summary>Critérios prioritários independentemente da TFGe</summary>
+<ul>
+<li>Proteinúria &gt;3,5 g/g ou albuminúria &gt;3,0 g/g: <b>muito urgente</b> se não diabético ou apresentação nova; <b>não referenciar</b> se diabético/apresentação crónica, seguindo a tabela TFGe + albuminúria.</li>
+<li>Proteinúria 1–3,4 g/g ou albuminúria 0,7–3,0 g/g: <b>urgente</b> em não diabéticos; se diabético/apresentação crónica, seguir a tabela.</li>
+<li>Diminuição &gt;30% da TFGe em &lt;6 meses: <b>urgente</b>.</li>
+<li>Diminuição rápida associada a hematoproteinúria: <b>muito urgente</b>.</li>
+</ul>
+</details>
+<details><summary>Outros critérios</summary>
+<ul><li>Hematúria microscópica não urológica: normal.</li><li>Glicosúria normoglicémica/aminoacidúria/cistinúria não esclarecida: normal.</li><li>ADPKD/doença quística familiar, nefrocalcinose e suspeita de doença hereditária: normal na ausência de agravantes.</li><li>Litíase: referenciar se ≥2 episódios de cólica renal em 2 anos ou rim único.</li><li>HTA: referenciar nas situações descritas no protocolo; HTA maligna → Serviço de Urgência.</li></ul>
+</details>
+<details><summary>Periodicidade de reavaliação</summary>
+<ul><li>Sem critérios de referenciação: anual.</li><li>Episódio recente de LRA (3–6 meses): trimestral durante 1 ano.</li><li>Teleconsulta: 6/6 meses.</li><li>Consulta de Nefrologia: decisão do nefrologista.</li></ul>
+</details>
+<details><summary>Resumo clínico a enviar</summary>
+<p class="small">Sexo, idade, motivo de referenciação, score KFRE; evolução da função renal, proteinúria e hematúria; antecedentes pessoais e familiares; medicação habitual; TA, auscultação pulmonar e edema; hemograma, UII, RAC ou equivalente, ionograma e ecografia renal.</p>
+</details>
+</section>
+<footer>Baseado exclusivamente no PS.NEFR.046, Versão 01, 27/09/2025. Documento com próxima revisão indicada para 27/09/2028. Esta app não substitui julgamento clínico nem altera o protocolo institucional.</footer>
+</main>
+</div>
+<script>
+const levels={green:{name:"Não referenciar",cls:"c-green"},pink:{name:"Teleconsulta",cls:"c-pink"},yellow:{name:"Referenciação normal",cls:"c-yellow"},orange:{name:"Referenciação urgente",cls:"c-orange"},red:{name:"Referenciação muito urgente",cls:"c-red"}};
+const ages=["19-39","40-64","65-80",">80"], egfrs=[">75","60-75","45-59","30-44","15-29","<15"];
+const matrix={
+"19-39":[["green","pink","yellow"],["pink","pink","yellow"],["yellow","yellow","yellow"],["orange","orange","orange"],["red","red","red"],["red","red","red"]],
+"40-64":[["green","green","yellow"],["green","green","yellow"],["pink","yellow","yellow"],["yellow","yellow","yellow"],["orange","orange","orange"],["red","red","red"]],
+"65-80":[["green","green","yellow"],["green","green","yellow"],["green","pink","yellow"],["pink","yellow","yellow"],["yellow","yellow","yellow"],["red","red","red"]],
+">80":[["green","green","green"],["green","green","green"],["green","green","green"],["pink","pink","yellow"],["pink","yellow","yellow"],["red","red","red"]]
+};
+function buildMatrix(){let b=document.getElementById("matrixBody");egfrs.forEach((e,i)=>{let tr=document.createElement("tr");let th=document.createElement("th");th.textContent=e;tr.appendChild(th);ages.forEach(a=>matrix[a][i].forEach(x=>{let td=document.createElement("td");td.className=levels[x].cls;td.textContent=levels[x].name.replace("Referenciação ","");tr.appendChild(td)}));b.appendChild(tr)})}
+buildMatrix();
+function v(id){return document.getElementById(id).value} function c(id){return document.getElementById(id).checked}
+function ageBand(a){if(a<40)return"19-39";if(a<65)return"40-64";if(a<=80)return"65-80";return">80"}
+function egfrBand(e){if(e>75)return 0;if(e>=60)return 1;if(e>=45)return 2;if(e>=30)return 3;if(e>=15)return 4;return 5}
+function acrBand(a){if(a<30)return 0;if(a<300)return 1;return 2}
+function matrixLevel(a,e,acr){return matrix[ageBand(a)][egfrBand(e)][acrBand(acr)]}
+function result(level,title,reason,follow=""){let r=document.getElementById("result"),b=document.getElementById("badge");r.className="result show "+(level==="red"?"danger":level==="orange"?"warn":level==="green"?"success":"");b.className="badge "+levels[level].cls;b.textContent=levels[level].name;document.getElementById("resultTitle").textContent=title;document.getElementById("reason").innerHTML=reason;document.getElementById("followup").innerHTML=follow||"";r.scrollIntoView({behavior:"smooth",block:"start"})}
+function evaluate(){
+const urgent=c("kSevere")||c("k65")||c("uremia")||c("overload")||c("pyeloSingle")||c("aki3")||c("malignantHTA")||c("obstructStone")||c("severeElectro");
+if(urgent){let why=[];if(c("kSevere"))why.push("K+ >6,0 mEq/L com alterações ECG");if(c("k65"))why.push("K+ >6,5 mEq/L");if(c("uremia"))why.push("sintomatologia urémica");if(c("overload"))why.push("sobrecarga hídrica");if(c("pyeloSingle"))why.push("pielonefrite aguda em rim único");if(c("aki3"))why.push("LRA KDIGO ≥3 / insuficiência renal rapidamente progressiva de novo");if(c("malignantHTA"))why.push("HTA maligna");if(c("obstructStone"))why.push("litíase obstrutiva → Urgência de Urologia");if(c("severeElectro"))why.push("alteração hidroelectrolítica/ácido-base grave ou sintomática");return result("red","Serviço de Urgência","Critério de observação no próprio dia: <b>"+why.join("; ")+"</b>.","O protocolo indica estas situações para avaliação urgente. Para litíase obstrutiva, indica Urgência de Urologia.");}
+if(c("hd"))return result("green","Não referenciar diretamente à consulta","Doente em hemodiálise: o protocolo indica discussão com as Unidades de HD.","");
+if(c("transplant"))return result("green","Não referenciar diretamente à consulta","Doente transplantado: o protocolo indica discussão com as Unidades de transplante.","");
+if(c("urologicHematuria")||c("urinary")||c("isolatedColic")||c("simpleCyst")||c("renalMass")||c("transientProtein")||c("oldStable"))return result("green","Não referenciar","Foi assinalado um critério de exclusão/não referenciação do protocolo.","Confirmar que não existe outro critério de referenciação concomitante.");
+let a=parseFloat(v("age")),e=parseFloat(v("egfr")),acr=parseFloat(v("acr")),pcr=parseFloat(v("pcr")),kfre=parseFloat(v("kfre"));
+let reasons=[], level="green";
+if(Number.isFinite(pcr)&&pcr>3.5 || Number.isFinite(acr)&&acr>3000){if(!c("diabetes")&&!c("newPresentation"))level="red",reasons.push("proteinúria >3,5 g/g ou albuminúria >3,0 g/g em doente não diabético/apresentação nova");else reasons.push("proteinúria/albuminúria muito elevada; por ser diabético/apresentação crónica, aplica-se a matriz TFGe + RAC");}
+else if(Number.isFinite(pcr)&&pcr>=1 || Number.isFinite(acr)&&acr>=700){if(!c("diabetes")&&!c("newPresentation"))level="orange",reasons.push("proteinúria 1–3,4 g/g ou albuminúria 0,7–3,0 g/g em não diabético");}
+if(c("rapidDecline")){level="orange";reasons.push("diminuição >30% da TFGe em <6 meses")}
+if(c("rapidDecline")&&c("hematoProtein")){level="red";reasons.push("progressão rápida associada a hematoproteinúria")}
+if(Number.isFinite(a)&&Number.isFinite(e)&&Number.isFinite(acr)){let ml=matrixLevel(a,e,acr);if(level==="green")level=ml; if(level==="green"&&Number.isFinite(kfre)&&kfre>5) level="yellow";reasons.push("classificação TFGe + RAC: "+levels[ml].name)}
+else if(c("hematuria")||c("glyco")||c("electro")||c("adpkd")||c("nephrocalc")||c("hereditary")||c("stone2")||c("singleKidneyStone")||c("hta4")||c("htaYoung")||c("htaHypoK")||c("htaCr")||c("htaBruit")){level="yellow";reasons.push("foi assinalado pelo menos um critério de referenciação normal/outro critério");}
+if(c("hematuria"))reasons.push("hematúria microscópica não urológica");
+if(c("adpkd"))reasons.push("ADPKD/doença renal quística familiar/genética");
+if(c("nephrocalc"))reasons.push("nefrocalcinose");
+if(c("hereditary"))reasons.push("suspeita de doença renal hereditária");
+if(c("stone2")||c("singleKidneyStone"))reasons.push("litíase com ≥2 episódios/2 anos ou rim único");
+if(c("hta4")||c("htaYoung")||c("htaHypoK")||c("htaCr")||c("htaBruit"))reasons.push("critério de HTA");
+if(c("glyco"))reasons.push("glicosúria/aminoacidúria/cistinúria não esclarecida");
+if(c("electro"))reasons.push("alteração hidroelectrolítica/ácido-base não grave");
+if(level==="green"&&Number.isFinite(kfre)&&kfre<=5&&Number.isFinite(a)&&a<=60&&!reasons.length) return result("green","Seguimento com MGF","KFRE ≤5%, idade ≤60 anos e ausência de restantes critérios de risco assinalados.","Reavaliação de risco anual.");
+if(level==="green")return result("green","Não referenciar","Não foi identificado um critério de referenciação com os dados introduzidos.","Reavaliação de risco anual; se episódio recente de LRA (3–6 meses), o protocolo indica reavaliação trimestral durante 1 ano.");
+let follow=level==="pink"?"Teleconsulta: reavaliação 6/6 meses.":level==="yellow"?"Consulta de Nefrologia — referenciação normal.":level==="orange"?"Consulta de Nefrologia — referenciação urgente.":"Consulta de Nefrologia — referenciação muito urgente.";
+result(level,levels[level].name,reasons.length?reasons.join("<br>"):"Critério de referenciação identificado.",follow);
+}
+function resetAll(){document.querySelectorAll("input").forEach(x=>{if(x.type==="checkbox")x.checked=false;else x.value=""});document.getElementById("result").className="result"}
+if("serviceWorker"in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+</script>
+</body></html>
