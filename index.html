@@ -521,6 +521,107 @@
   .actions .secondary{min-width:75px!important;font-size:14px!important}
 }
 
+
+/* Resultados — correspondência visual com a referência enviada */
+.result-top-grid{display:block!important}
+.result-stage-card,.result-kfre-card{
+  display:flex!important;align-items:center!important;gap:15px!important;
+  width:100%!important;box-sizing:border-box!important;
+  min-height:112px!important;padding:18px 19px!important;
+  margin:0 0 12px!important;border:0!important;border-radius:18px!important;
+  position:relative!important;
+}
+.result-stage-card{background:linear-gradient(110deg,#f0f1f1,#f7f8f8)!important}
+.result-stage-icon{font-size:42px!important;line-height:1!important;color:#17684d!important;flex:0 0 55px;text-align:center}
+.result-stage-content{min-width:0!important;flex:1}
+.result-stage-title{font-size:17px!important;font-weight:800!important;color:#14251f!important;margin-bottom:3px!important}
+.result-stage-card .stage{font-size:29px!important;font-weight:900!important;color:#145c46!important;line-height:1.1!important}
+.result-stage-card .hero-sub{font-size:11px!important;line-height:1.3!important;color:#64736b!important;margin-top:4px!important}
+.result-stage-card .risk-pills{display:none!important}
+.result-kfre-card{background:linear-gradient(110deg,#e8f4fa,#edf7fb)!important}
+.result-kfre-icon{font-size:39px!important;color:#16818a!important;flex:0 0 55px;text-align:center}
+.result-kfre-content{min-width:0!important;flex:1}
+.result-kfre-title{font-size:17px!important;font-weight:800!important;color:#14251f!important;margin:0 0 5px!important}
+.result-kfre-value{padding:0!important;margin:0!important;border:0!important;background:transparent!important;color:#14251f!important;font-size:14px!important;line-height:1.4!important}
+.result-kfre-value h3{display:none!important}
+.result-kfre-value p{font-size:15px!important;line-height:1.4!important;margin:2px 0!important}
+.result-kfre-value p+p{margin-top:4px!important}
+.info-mark{width:25px;height:25px;flex:0 0 25px;border:2px solid #52635c;border-radius:50%;display:grid;place-items:center;font-family:serif;font-size:17px;font-weight:700;color:#52635c}
+#referralSection{margin:0 0 13px!important}
+.result-expand-card{
+  display:block!important;border:0!important;border-radius:18px!important;
+  overflow:hidden!important;background:linear-gradient(110deg,#fff5dd,#fff9ed)!important;
+  margin:0!important;
+}
+.result-expand-card>summary{
+  display:flex!important;align-items:center!important;gap:13px!important;
+  min-height:98px!important;padding:17px 18px!important;cursor:pointer!important;
+  list-style:none!important;
+}
+.result-expand-card>summary::-webkit-details-marker{display:none!important}
+.expand-icon{font-size:38px!important;color:#a97818!important;flex:0 0 48px;text-align:center}
+.expand-title{font-size:19px!important;font-weight:850!important;color:#17251f!important;flex:1}
+.expand-chip{display:block!important;padding:7px 13px!important;border-radius:22px!important;background:#f9e5a5!important;color:#3d3214!important;font-size:13px!important;font-weight:800!important;max-width:45%;text-align:center}
+.expand-chevron{font-size:27px!important;color:#52635c!important;transform:rotate(90deg);transition:transform .18s}
+.result-expand-card[open]>summary .expand-chevron{transform:rotate(-90deg)}
+.expand-body{padding:0 17px 17px!important}
+#referralTitle.section-title{font-size:16px!important;margin:0 0 7px!important}
+#referralSection .recommend{margin:0!important;border-radius:13px!important}
+#referralSection .referral-matrix-wrap{margin-top:10px!important;border:1px solid #e2e8e4!important;border-radius:12px!important;background:#fff!important;padding:10px!important}
+#referralSection .referral-matrix-wrap>summary{font-weight:750!important;color:#155a43!important;cursor:pointer!important}
+.safety-card{margin:0 0 15px!important;min-height:94px!important;border-radius:18px!important}
+#summarySection{margin:0 0 16px!important}
+#summarySection>.section-title{font-size:19px!important;font-weight:850!important;margin:0 0 8px!important}
+#clinicalSummary.summary-card{background:#f7faf8!important;border:1px solid #e2e9e5!important;border-radius:16px!important;padding:15px!important}
+#therapyTitle{display:none!important}
+.therapy-expand-card{
+  border:1px solid #e0e7e3!important;border-radius:18px!important;
+  background:#fff!important;overflow:hidden!important;
+  box-shadow:0 2px 7px rgba(20,55,39,.055)!important;margin:15px 0 0!important
+}
+.therapy-card-head{
+  min-height:78px!important;display:flex!important;align-items:center!important;gap:12px!important;
+  padding:14px 17px!important;border-bottom:1px solid #e4e9e6!important
+}
+.therapy-card-icon{font-size:38px!important;color:#17684d!important;flex:0 0 42px;text-align:center}
+.therapy-card-head strong{font-size:19px!important;font-weight:850!important;color:#14251f!important;flex:1}
+.expand-all-btn{
+  border:1px solid #d7e4dc!important;background:#eff6f1!important;color:#14543d!important;
+  border-radius:18px!important;padding:7px 10px!important;font-size:12px!important;
+  font-family:inherit!important;font-weight:750!important;cursor:pointer!important
+}
+.therapy-items{padding:0 14px!important}
+.therapy-item{border:0!important;border-bottom:1px solid #e5eae7!important;margin:0!important;background:#fff!important}
+.therapy-item:last-child{border-bottom:0!important}
+.therapy-item>summary{
+  min-height:65px!important;display:flex!important;align-items:center!important;gap:12px!important;
+  list-style:none!important;cursor:pointer!important;padding:11px 4px!important
+}
+.therapy-item>summary::-webkit-details-marker{display:none!important}
+.therapy-check{
+  width:29px;height:29px;flex:0 0 29px;border-radius:50%;display:grid;place-items:center;
+  background:#299447;color:#fff;font-size:17px;font-weight:850
+}
+.therapy-item-title{font-size:16px!important;font-weight:650!important;color:#17251f!important;flex:1}
+.therapy-chevron{font-size:27px!important;color:#43534c!important;transition:transform .18s}
+.therapy-item[open] .therapy-chevron{transform:rotate(90deg)}
+.therapy-item-body{padding:0 8px 15px 45px!important;color:#33443c!important}
+.therapy-item-body p{font-size:14px!important;line-height:1.5!important;margin:0!important}
+.therapy-item-empty{padding:16px!important}
+.therapy-item-empty p{font-size:14px!important;margin:5px 0 0!important}
+@media(max-width:390px){
+ .result-stage-card,.result-kfre-card{min-height:100px!important;padding:14px!important;gap:10px!important}
+ .result-stage-icon,.result-kfre-icon{flex-basis:42px!important;font-size:33px!important}
+ .result-stage-title,.result-kfre-title{font-size:15px!important}
+ .result-stage-card .stage{font-size:26px!important}
+ .result-kfre-value p{font-size:13px!important}
+ .expand-title{font-size:17px!important}
+ .expand-chip{font-size:11px!important;padding:6px 8px!important}
+ .therapy-card-head strong{font-size:17px!important}
+ .expand-all-btn{font-size:11px!important;padding:6px 8px!important}
+ .therapy-item-title{font-size:15px!important}
+}
+
 </style>
 </head>
 <body>
@@ -619,17 +720,33 @@
 <div id="resultsContent" class="hidden">
 <!-- Síntese visual: classificação/KFRE → referenciação → segurança → resumo clínico → otimização terapêutica -->
 <div id="emergencyTop" class="hidden"></div>
-<div class="result-top-grid">
-<div class="result-hero"><div class="result-head"><div><div class="hero-label">Classificação renal</div><div id="stage" class="stage">—</div><div id="heroSub" class="hero-sub">Introduza os dados para classificar a DRC</div></div><div id="riskPills" class="pillrow risk-pills"></div></div></div>
-<section class="result-kfre-card">
+<section class="result-stage-card" aria-label="Classificação da DRC">
+  <div class="result-stage-icon" aria-hidden="true">♧</div>
+  <div class="result-stage-content">
+    <div class="result-stage-title">Classificação da DRC</div>
+    <div id="stage" class="stage">—</div>
+    <div id="heroSub" class="hero-sub">Introduza os dados para classificar a DRC</div>
+    <div id="riskPills" class="pillrow risk-pills"></div>
+  </div>
+  <span class="info-mark" aria-hidden="true">i</span>
+</section>
+<section class="result-kfre-card" aria-label="Risco de falência renal">
   <div class="result-kfre-icon" aria-hidden="true">▥</div>
   <div class="result-kfre-content">
     <div class="result-kfre-title">Risco de falência renal · KFRE</div>
     <div id="kfre" class="result-kfre-value"></div>
   </div>
+  <span class="info-mark" aria-hidden="true">i</span>
 </section>
-</div>
-<div id="referralSection" class="hidden"><div id="referralTitle" class="section-title">📋 Referenciação à Nefrologia</div><div id="referral" class="recommend"></div><details class="referral-matrix-wrap"><summary>📊 Consultar matriz de referenciação do Serviço</summary><div id="referralMatrixView" class="referral-matrix-inner"></div></details>
+<div id="referralSection" class="hidden">
+  <details class="result-expand-card referral-expand" id="referralDetails">
+    <summary><span class="expand-icon" aria-hidden="true">▤</span><span class="expand-title">Referenciação</span><span class="expand-chip" id="referralBadge">Consultar decisão</span><span class="expand-chevron" aria-hidden="true">›</span></summary>
+    <div class="expand-body">
+      <div id="referralTitle" class="section-title">Referenciação à Nefrologia</div>
+      <div id="referral" class="recommend"></div>
+      <details class="referral-matrix-wrap"><summary>📊 Visualizar matriz de referenciação do Serviço</summary><div id="referralMatrixView" class="referral-matrix-inner"></div></details>
+    </div>
+  </details>
 </div>
 <div class="safety-card" id="safetyCard">
   <div class="safety-icon" aria-hidden="true">✓</div>
@@ -968,7 +1085,7 @@ function calculateReferral(){
  get('emergencyTop').className='hidden';
  get('emergencyTop').innerHTML='';
  get('referralSection').classList.remove('hidden');
- get('referralTitle').textContent='🩺 Referenciação segundo critérios do Serviço de Nefrologia da ULS Arrábida';
+ get('referralTitle').textContent='Referenciação segundo critérios do Serviço de Nefrologia da ULS Arrábida';get('referralDetails')?.removeAttribute('open');
 
  const allAdditionalReasons=[...new Set(otherCriteria.map(x=>x.label))];
 
@@ -1006,7 +1123,7 @@ function calculateReferral(){
  box.className='recommend '+referralClasses[finalIdx];
  box.innerHTML=referralHtml;
  currentReferralDecision={egfr,acr,age,matrixIdx,finalIdx,matrixName,finalName,albuminExtraIdx,albuminReason,otherCriteria,emergencyCriteria,extraIdx:albuminExtraIdx};
- renderReferralMatrix(allAdditionalReasons.length ? -1 : g, allAdditionalReasons.length ? -1 : a*3+r);
+ renderReferralMatrix(allAdditionalReasons.length ? -1 : g, allAdditionalReasons.length ? -1 : a*3+r);updateReferralBadge();
 }
 
 function showPotassiumAlertBeforeFullAssessment(k){
@@ -1205,7 +1322,7 @@ if(kKnown&&k<2.5){rec=[{c:'red',t:'Prioridade clínica · hipocaliemia grave',p:
 // Ordenar recomendações farmacológicas: IECA/ARA II como base, depois iSGLT2 e só depois finerenona.
 const therapyRank=r=>{const t=(r.t+' '+r.p).toLowerCase();if(/ieca\/ara|ieca\/ara ii/.test(t))return 0;if(/sglt2i|isglt2/.test(t))return 1;if(/finerenona/.test(t))return 2;if(/ar glp-1/.test(t))return 3;if(/estatina/.test(t))return 4;return 5;};
 rec=rec.map((r,i)=>({...r,_originalIndex:i})).sort((a,b)=>therapyRank(a)-therapyRank(b)||a._originalIndex-b._originalIndex);
-get('recommendations').innerHTML=rec.map(r=>`<div class="recommend ${r.c}"><h3>${esc(r.t)}</h3><p>${esc(r.p)}</p></div>`).join('')||'<div class="recommend"><h3>Sem alerta específico</h3><p>Rever progressão da DRC, risco cardiovascular, complicações e preparação para terapêutica de substituição renal.</p></div>';
+get('recommendations').innerHTML='<div class="therapy-expand-card"><div class="therapy-card-head"><span class="therapy-card-icon" aria-hidden="true">⌁</span><strong>Orientação terapêutica</strong><button type="button" class="expand-all-btn" id="toggleTherapies" onclick="toggleTherapyDetails()">Expandir tudo</button></div><div class="therapy-items">'+(rec.map((r,i)=>`<details class="therapy-item ${r.c}" id="therapyItem${i}"><summary><span class="therapy-check" aria-hidden="true">✓</span><span class="therapy-item-title">${esc(r.t)}</span><span class="therapy-chevron" aria-hidden="true">›</span></summary><div class="therapy-item-body"><p>${esc(r.p)}</p></div></details>`).join('')||'<div class="therapy-item-empty"><strong>Sem alerta específico</strong><p>Rever progressão da DRC, risco cardiovascular, complicações e preparação para terapêutica de substituição renal.</p></div>')+'</div></div>';
 let risk2=null,risk5=null;
 if(age>=18&&age<=100&&egfr>=15&&egfr<60&&acr>0){
 const male=sex==='male'?1:0;
@@ -1368,6 +1485,21 @@ get('sex')?.addEventListener('change',updateEgfrEstimate);
 updateRenalInputMode();
 
 
+
+function toggleTherapyDetails(){
+ const items=[...document.querySelectorAll('#recommendations .therapy-item')];
+ const shouldOpen=items.some(item=>!item.open);
+ items.forEach(item=>item.open=shouldOpen);
+ const btn=get('toggleTherapies');
+ if(btn)btn.textContent=shouldOpen?'Fechar tudo':'Expandir tudo';
+}
+function updateReferralBadge(){
+ const badge=get('referralBadge');
+ if(!badge)return;
+ if(!currentReferralDecision){badge.textContent='Consultar decisão';return;}
+ badge.textContent=currentReferralDecision.finalName||'Consultar decisão';
+}
+
 function updateSafetyStatus(){
  const card=get('safetyCard'),message=get('safetyMessage'),icon=card?.querySelector('.safety-icon');
  if(!card||!message)return;
@@ -1386,7 +1518,7 @@ function updateSafetyStatus(){
  }
 }
 
-function resetForm(){['egfr','acr','age','k','creatinine'].forEach(id=>get(id).value='');get('creatinineUnit').value='mgdl';get('renalModeEgfr').checked=true;updateRenalInputMode();get('sex').value='';document.querySelectorAll('input[name="sexChoice"]').forEach(el=>el.checked=false);updateEgfrEstimate();get('kfreCalibration').value='non-na';['dm1','dm2','hf','ascvd','htn','obesity','sglt2','raas','finer','statin','glp1','refRapidEgfr','refHemaProtein','refMicroHematuria','refNormoglyGlyco','refAminoaciduria','refCystinuria','refHydroStable','refHydroUrgent','refCysticDisease','refNephrocalcinosis','refHereditary','refStoneRecurrent','refStoneSolitary','refStoneObstructive','refResistantHTN','refYoungHTN','refHTNHypoK','refHTNCrRise','refHTNAbdBruit','refMalignantHTN','refAlbuminuria700','refAlbuminuria3000'].forEach(id=>{get(id).checked=false;get(id).dataset.manualSelected='false'});get('other-referral-panel')?.removeAttribute('open');get('referralTitle').textContent='🩺 Referenciação segundo critérios do Serviço de Nefrologia da ULS Arrábida';get('emergencyTop')?.classList.add('hidden');get('emergencyTop').innerHTML='';get('stage').textContent='—';get('heroSub').textContent='Introduza os dados para classificar a DRC';get('riskPills').innerHTML='';get('urgent').classList.add('hidden');get('recommendations').innerHTML='';get('therapyTitle').classList.add('hidden');get('initialMessage').classList.remove('hidden');get('resultsContent').classList.add('hidden');get('referralSection').classList.add('hidden');get('summarySection').classList.add('hidden');get('clinicalSummary').innerHTML='';get('safetyCard')?.classList.remove('warning','critical');if(get('safetyMessage'))get('safetyMessage').textContent='A avaliar critérios de urgência…';if(get('safetyCard')?.querySelector('.safety-icon'))get('safetyCard').querySelector('.safety-icon').textContent='✓'}
+function resetForm(){['egfr','acr','age','k','creatinine'].forEach(id=>get(id).value='');get('creatinineUnit').value='mgdl';get('renalModeEgfr').checked=true;updateRenalInputMode();get('sex').value='';document.querySelectorAll('input[name="sexChoice"]').forEach(el=>el.checked=false);updateEgfrEstimate();get('kfreCalibration').value='non-na';['dm1','dm2','hf','ascvd','htn','obesity','sglt2','raas','finer','statin','glp1','refRapidEgfr','refHemaProtein','refMicroHematuria','refNormoglyGlyco','refAminoaciduria','refCystinuria','refHydroStable','refHydroUrgent','refCysticDisease','refNephrocalcinosis','refHereditary','refStoneRecurrent','refStoneSolitary','refStoneObstructive','refResistantHTN','refYoungHTN','refHTNHypoK','refHTNCrRise','refHTNAbdBruit','refMalignantHTN','refAlbuminuria700','refAlbuminuria3000'].forEach(id=>{get(id).checked=false;get(id).dataset.manualSelected='false'});get('other-referral-panel')?.removeAttribute('open');get('referralTitle').textContent='Referenciação segundo critérios do Serviço de Nefrologia da ULS Arrábida';get('referralDetails')?.removeAttribute('open');get('emergencyTop')?.classList.add('hidden');get('emergencyTop').innerHTML='';get('stage').textContent='—';get('heroSub').textContent='Introduza os dados para classificar a DRC';get('riskPills').innerHTML='';get('urgent').classList.add('hidden');get('recommendations').innerHTML='';get('therapyTitle').classList.add('hidden');get('initialMessage').classList.remove('hidden');get('resultsContent').classList.add('hidden');get('referralSection').classList.add('hidden');get('summarySection').classList.add('hidden');get('clinicalSummary').innerHTML='';get('safetyCard')?.classList.remove('warning','critical');if(get('safetyMessage'))get('safetyMessage').textContent='A avaliar critérios de urgência…';if(get('safetyCard')?.querySelector('.safety-icon'))get('safetyCard').querySelector('.safety-icon').textContent='✓'}
 </script>
 </body>
 </html>
