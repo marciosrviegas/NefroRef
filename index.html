@@ -161,6 +161,19 @@
 #resultsCard .result-hero{margin-top:0}
 .section-title:not(.therapy-section-title){letter-spacing:-.3px}
 
+
+/* Ajustes solicitados após revisão visual */
+.header-actions,.header-info,.header-moon{display:none!important}
+.app-header{justify-content:flex-start}
+.brand-icon svg{stroke-width:2.1}
+#k{background:#fff!important;color:#111827!important;border:1.5px solid #b8c2cb!important;box-shadow:inset 0 1px 2px rgba(0,0,0,.035)!important}
+#k:focus{border-color:#16815d!important;box-shadow:0 0 0 3px rgba(22,129,93,.12)!important}
+#k:placeholder-shown{background:#fff!important;border-color:#b8c2cb!important;color:#111827!important}
+.check-grid .check label{font-size:13px!important;font-weight:500!important}
+.check-grid .check{gap:5px}
+.check-grid .check input{width:21px;height:21px;min-width:21px}
+@media(max-width:390px){.check-grid .check label{font-size:12.5px!important}}
+
 </style>
 </head>
 <body>
@@ -168,11 +181,13 @@
 <div id="app"><div class="wrap">
 <header class="top app-header"><div class="brand">
 <div class="brand-icon" aria-hidden="true"><svg viewBox="0 0 64 64">
-<path d="M22 7C12 7 6 16 7 28c1 10 7 17 15 17 6 0 10-5 10-11V19C32 12 28 7 22 7Z"/>
-<path d="M42 7c10 0 16 9 15 21-1 10-7 17-15 17-6 0-10-5-10-11V19c0-7 4-12 10-12Z"/>
-<path d="M23 45v12m18-12v12M32 34v23"/></svg></div>
+<path d="M25 5C14 5 6 14 6 27c0 12 7 21 17 21 7 0 11-5 11-12V18C34 10 30 5 25 5Z"/>
+<path d="M39 5c11 0 19 9 19 22 0 12-7 21-17 21-7 0-11-5-11-12V18c0-8 4-13 9-13Z"/>
+<path d="M25 48v11m14-11v11M32 35v24"/>
+<path d="M33 23c-2 0-4 2-4 4 0 2 2 3 4 3m-2-7c2 0 4 2 4 4 0 2-2 3-4 3"/>
+</svg></div>
 <div class="brand-text"><h1>Drive CKD</h1><p>Apoio à decisão na Doença Renal Crónica</p></div></div>
-<div class="header-actions"><span class="header-info" title="Apoio à decisão clínica">i</span><span class="header-moon">☾</span></div></header>
+</header>
 <div class="grid">
 <section class="card">
 <div class="stepper" aria-label="Etapas da avaliação">
