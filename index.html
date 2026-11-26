@@ -111,11 +111,110 @@ footer{font-size:11px;color:#75827c;padding:12px 4px 32px;line-height:1.55}
   .primary,.secondary{width:100%}
 }
 
+
+/* NefroRef — visual language adapted from the supplied Drive CKD reference */
+:root{
+  --green-950:#064b39;--green-900:#075943;--green-800:#0b6b50;
+  --green-700:#12815c;--green-100:#e7f4eb;--green-50:#f3faf5;
+  --teal-700:#087f83;--blue-50:#e8f4fb;--amber-50:#fff4dc;
+  --amber-200:#f2d28c;--red-50:#fff0ef;--red-200:#efb8b3;
+  --bg:#f5f7f6;--card:#fff;--text:#14231e;--muted:#5d6e66;
+  --line:#e1e9e5;--blue:#08745a;--navy:#075943;
+}
+body{background:var(--bg);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
+.top{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:linear-gradient(115deg,#075844 0%,#08745a 58%,#0c8064 100%);
+  color:#fff;padding:17px 20px 18px;position:sticky;top:0;z-index:10;
+  box-shadow:0 5px 18px #064e3b24;border-radius:0 0 22px 22px
+}
+.brand{display:flex;align-items:center;gap:13px;min-width:0}
+.brand-mark{width:54px;height:54px;flex:0 0 54px}
+.brand-mark svg{width:100%;height:100%;fill:none;stroke:#fff;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.brand-copy h1{font-size:25px;line-height:1.1;letter-spacing:-.5px;font-weight:800;margin:0 0 5px;color:#fff}
+.brand-copy p{font-size:12px;line-height:1.35;margin:0;color:#e5f4ed;opacity:1}
+.top-mark{width:31px;height:31px;border:2px solid #d8eee4;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:17px;flex:0 0 auto}
+.wrap{max-width:900px;margin:auto;padding:17px 16px 32px}
+.card{
+  background:#fff;border:1px solid #e2eae5;border-radius:19px;
+  padding:19px;margin:0 0 14px;box-shadow:0 3px 13px #183d2d0c
+}
+.card h2{
+  font-size:18px;line-height:1.25;letter-spacing:-.25px;color:#142d23;
+  margin:0 0 13px;display:flex;align-items:center;gap:10px
+}
+.card h2:before{
+  content:"";width:4px;height:21px;border-radius:4px;background:#16815c;flex:0 0 4px
+}
+.card h3{font-size:15px;line-height:1.3;color:#174b37;margin:18px 0 10px}
+.intro{font-size:14px;line-height:1.6;color:#53645d}
+.grid{gap:13px}
+label{color:#34483f}
+input[type=number],select{
+  border:1px solid #d3dfd9;border-radius:12px;padding:12px 13px;
+  background:#fff;min-height:46px;outline:none;transition:border-color .15s,box-shadow .15s
+}
+input[type=number]:focus,select:focus{border-color:#16835e;box-shadow:0 0 0 3px #16835e1c}
+.check{border:1px solid #e2eae5;border-radius:12px;background:#fbfdfc;padding:11px 12px;line-height:1.4}
+.check:has(input:checked){background:#edf7f0;border-color:#a9d5b9}
+.check input{accent-color:#0b8058;width:17px;height:17px}
+.primary{
+  background:linear-gradient(110deg,#075844,#08775b);color:#fff;border:0;
+  border-radius:13px;padding:13px 20px;font-weight:800;min-height:49px;
+  box-shadow:0 4px 10px #07584420
+}
+.secondary{background:#fff;color:#075844;border:1px solid #b9d4c7;border-radius:13px;padding:12px 18px;min-height:49px}
+.result{border-radius:18px;padding:19px;border-width:1px;box-shadow:0 4px 15px #173b2a0c}
+.result h2{font-size:21px;color:#142d23}
+.result h2:before{display:none}
+.danger{background:var(--red-50);border-color:var(--red-200)}
+.warn{background:var(--amber-50);border-color:var(--amber-200)}
+.success{background:var(--green-50);border-color:#b8d9c3}
+.badge{padding:7px 12px;border-radius:999px;font-weight:850}
+.note{background:#f0f7f3;border-left:4px solid #16815c;border-radius:0 11px 11px 0;color:#34483e}
+details{border-top:1px solid #e4ebe7;padding:13px 0}
+summary{color:#164b37;line-height:1.4}
+summary:after{content:"＋";font-size:18px;color:#16815c;font-weight:500}
+details[open]>summary:after{content:"−"}
+.matrix{border-radius:12px}
+.matrix th{background:#edf4f0;color:#234638}
+.matrix .c-green{background:#dff1e3}
+.matrix .c-pink{background:#f6e5e5}
+.matrix .c-yellow{background:#fff1b9}
+.matrix .c-orange{background:#f4c18e}
+.matrix .c-red{background:#d94b4b;color:white}
+footer{color:#75827c}
+@media(max-width:520px){
+  .top{padding:15px 15px 16px;border-radius:0 0 18px 18px}
+  .brand-mark{width:47px;height:47px;flex-basis:47px}
+  .brand-copy h1{font-size:23px}
+  .brand-copy p{font-size:11px}
+  .wrap{padding:13px 12px 25px}
+  .card{padding:16px;border-radius:17px}
+  .actions>*{flex:1}
+  .primary,.secondary{width:100%}
+}
+
 </style>
 </head>
 <body>
 <div class="app">
-<header class="top"><h1>🩺 NefroRef</h1><p>Definição da referenciação à Consulta de Nefrologia</p></header>
+<header class="top">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 64 64" role="img">
+        <path d="M22 8C12 8 7 17 8 28c1 10 7 17 15 17 6 0 9-5 9-11V19c0-6-4-11-10-11Z"/>
+        <path d="M42 8c10 0 15 9 14 20-1 10-7 17-15 17-6 0-9-5-9-11V19c0-6 4-11 10-11Z"/>
+        <path d="M23 45v11m18-11v11M32 34v22"/>
+      </svg>
+    </div>
+    <div class="brand-copy">
+      <h1>NefroRef</h1>
+      <p>Referenciação à Consulta de Nefrologia</p>
+    </div>
+  </div>
+  <div class="top-mark" aria-hidden="true">i</div>
+</header>
 <main class="wrap">
 <section class="card">
 <h2>Triagem rápida</h2>
