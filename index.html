@@ -124,167 +124,86 @@
 .consent-dialog h2{font-size:21px;line-height:1.2;margin:0 0 5px}.consent-kicker{font-size:12px;color:var(--accent);font-weight:800;margin-bottom:13px}.consent-dialog p{font-size:13px;line-height:1.55;margin:9px 0}.consent-dialog strong{color:var(--text)}.consent-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.consent-actions button{flex:1 1 210px;min-height:42px;line-height:1.3}.consent-note{font-size:11px!important;color:var(--muted)}
 
 
-/* =========================================================
-   DRIVE CKD — interface visual inspirada na referência enviada
-   Mantém a estrutura clínica, os identificadores e o JavaScript.
-   ========================================================= */
-:root{
-  color-scheme:light;
-  --bg:#f4f6f5; --surface:#fff; --surface2:#f8faf9;
-  --text:#101c27; --muted:#52616d; --border:#e0e7e5;
-  --accent:#08684f; --green:#07854f; --amber:#b47712; --red:#c53b3b;
-  --pale-green:#e9f5ed; --pale-blue:#e5f3fb; --pale-amber:#fff3dc;
-}
-html{background:var(--bg)}
-body{background:var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
-#app{background:var(--bg)}
-.wrap{max-width:1180px;padding:0 20px 34px}
-.app-header{
-  min-height:112px;margin:0 -20px 20px;padding:18px max(24px,calc((100% - 1140px)/2));
-  display:flex;align-items:center;justify-content:space-between;gap:18px;
-  color:#fff;background:linear-gradient(110deg,#075943 0%,#08745a 55%,#0b6b53 100%);
-  border-radius:0 0 22px 22px;box-shadow:0 5px 18px rgba(4,69,49,.16)
-}
-.brand{display:flex;align-items:center;gap:15px;min-width:0}
-.brand-icon{width:68px;height:68px;flex:0 0 68px}
-.brand-icon svg{width:100%;height:100%;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.brand-text h1{margin:0 0 5px;color:#fff;font-size:31px;font-weight:800;letter-spacing:-.7px;line-height:1.05}
-.brand-text p{margin:0;color:#e7f3ee;font-size:14px;line-height:1.35}
-.header-actions{display:flex;align-items:center;gap:17px;color:#fff}
-.header-info{width:27px;height:27px;border:2px solid #eaf5f0;border-radius:50%;display:grid;place-items:center;font-size:17px;font-weight:800}
-.header-moon{font-size:27px;line-height:1}
-.badge{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);color:#f4fbf7}
-.grid{grid-template-columns:minmax(330px,.88fr) minmax(0,1.42fr);gap:18px;align-items:start}
-.card{background:#fff;border:1px solid #e1e8e5;border-radius:20px;padding:20px;box-shadow:0 4px 16px rgba(18,49,36,.055)}
-.card>h2{font-size:18px;line-height:1.25;color:#10251d;margin:0 0 17px;display:flex;align-items:center;gap:10px}
-.card>h2:before{content:"";width:4px;height:22px;border-radius:4px;background:#0a8056}
-.section-title{font-size:15px;line-height:1.3;font-weight:850;color:#10251d;margin:19px 0 9px;display:flex;align-items:center;gap:9px}
-.fields{gap:13px 12px}
-label{color:#34483f}
-input,select{background:#fff;color:#14251d;border:1px solid #d6e0db;border-radius:11px;min-height:43px;padding:10px 12px;font-size:14px}
-input:focus,select:focus{border-color:#16815d;box-shadow:0 0 0 3px rgba(22,129,93,.12)}
-.field label{font-size:12px;font-weight:750;color:#34483f;margin-bottom:6px}
-.mode-options{gap:7px}
-.mode-option{border:1px solid #dce7e1;background:#f7faf8;border-radius:10px;min-height:40px;color:#234436}
-.mode-option:has(input:checked){background:#e4f3e9;border-color:#0b8058;color:#07563f;box-shadow:inset 0 0 0 1px #0b8058}
-.check{display:flex;align-items:center;gap:9px;padding:9px 10px;margin:5px 0;border:1px solid #e6ece9;border-radius:10px;background:#fbfcfb;font-size:13px;line-height:1.35}
-.check:has(input:checked){background:#edf7f0;border-color:#b9d9c5}
-.check input{accent-color:#07854f;width:17px;height:17px;min-width:17px;margin:0}
-.check label{margin:0;color:#1b3026;font-size:13px;font-weight:600}
-.other-referral-panel{border:1px solid #dfe9e3;border-radius:13px;background:#fff}
-.other-referral-panel summary{padding:13px 14px;background:#f7faf8;color:#14543c;font-size:13px}
-.other-referral-inner{padding:6px 13px 12px}
-.other-referral-group>strong{font-size:12px;color:#244b39}
-.other-referral-group .check{border:0;border-radius:7px;background:transparent;margin:1px 0;padding:6px 2px}
-.other-referral-group .check:has(input:checked){background:#edf7f0}
-.actions{display:flex;gap:10px;margin-top:18px}
-.btn{border-radius:12px;min-height:47px;padding:12px 18px;font-size:14px}
-.primary{background:linear-gradient(110deg,#075943,#08745a);color:#fff;box-shadow:0 4px 10px rgba(7,89,67,.14)}
-.secondary{background:#f7faf8;color:#15563e;border:1px solid #cdded4}
-.actions .primary{flex:1;font-size:16px}
-.actions .secondary{min-width:82px}
-.result-hero{border:0;border-radius:17px;background:linear-gradient(115deg,#eaf5ed,#f7fbf8);padding:18px 20px;margin-bottom:15px}
-.result-head{align-items:center;margin:0}
-.hero-label{font-size:12px;color:#52665b;letter-spacing:.04em}
-.stage{font-size:35px;color:#075b43;line-height:1.1}
-.hero-sub{font-size:13px;color:#51665c}
-.pillrow .pill{background:#fff;border:1px solid #dce9e1;color:#175b42;padding:7px 10px;font-size:11px}
-#resultsContent>.section-title{margin:19px 0 9px;font-size:16px}
-#kfre.recommend{background:#e8f4fb;border:1px solid #d6eaf5;border-left:0;border-radius:15px}
-#referral.recommend{background:#fff4dd;border:1px solid #f3e3bd;border-left:0;border-radius:15px}
-.recommend{background:#fff;border:1px solid #e0e8e4;border-left:0;border-radius:14px;padding:14px 16px;margin:9px 0;box-shadow:0 2px 8px rgba(20,55,39,.035)}
-.recommend h3{font-size:14px;color:#14251d;margin:0 0 5px}
-.recommend p{font-size:13px;line-height:1.5;color:#43564b}
-.recommend.green{background:#eaf5ed;border-color:#d5e9da}
-.recommend.tele{background:#fbf0f3}
-.recommend.normal{background:#fff9df}
-.recommend.urgent{background:#fff0dc}
-.recommend.very{background:#fff0f0}
-.recommend.amber{background:#fff4dd}
-.recommend.red{background:#fff0ef}
-.summary-card{background:#f8faf9;border:1px solid #e1e8e5;border-left:4px solid #0a8056;border-radius:13px;padding:15px 16px;color:#1c3026}
-.summary-card p,.summary-card div,.summary-card li,.summary-card strong,.summary-card span{font-size:13px;line-height:1.55}
-#emergencyTop .recommend,#emergencyTop .alert{border-radius:14px}
-.alert{border-radius:13px;background:#fff2e2;border:1px solid #f0d5a6;color:#63420d;font-size:13px;line-height:1.5;padding:13px 15px}
-.supplementary-guidance{border:1px solid #e0e8e4;border-radius:15px;background:#fff}
-.supplementary-heading{background:#f8faf9;color:#53645b;font-size:12px;padding:13px 15px}
-.urgent-referral-card{border-radius:13px}
-.guidance-details{border-radius:11px}
-.guidance-details summary{font-size:13px}
-.referral-matrix-wrap{border-radius:14px}
-.referral-matrix-wrap summary{background:#f7faf8}
-.footer{margin-top:20px}
-.app-credit{padding:14px 4px 0}
-#initialMessage{border-radius:14px}
-#initialMessage.recommend{background:#f7faf8}
-.hidden{display:none!important}
-@media(max-width:850px){
- .wrap{padding:0 12px 28px}
- .app-header{margin:0 -12px 14px;padding:16px 17px;min-height:94px;border-radius:0 0 19px 19px}
- .grid{grid-template-columns:1fr;gap:13px}
- .card{padding:17px;border-radius:18px}
- .brand-icon{width:54px;height:54px;flex-basis:54px}
- .brand-text h1{font-size:26px}
- .brand-text p{font-size:12px}
- .header-actions{gap:12px}
-}
-@media(max-width:520px){
- .wrap{padding:0 8px 24px}
- .app-header{margin:0 -8px 12px;padding:14px 15px;min-height:84px}
- .brand{gap:10px}
- .brand-icon{width:47px;height:47px;flex-basis:47px}
- .brand-text h1{font-size:23px}
- .brand-text p{font-size:10.5px}
- .header-info{width:24px;height:24px;font-size:15px}
- .header-moon{font-size:23px}
- .card{padding:15px;border-radius:17px}
- .fields{gap:10px}
- .actions{display:grid;grid-template-columns:1fr auto}
- .actions .primary{min-width:0}
- .actions .secondary{min-width:72px}
- .section-title{font-size:14px}
-}
+/* ECRÃ INICIAL — composição baseada na imagem fornecida */
+:root{color-scheme:light;--bg:#f3f6f5;--surface:#fff;--surface2:#f4f6f5;--text:#101b27;--muted:#52616e;--border:#e1e8e5;--accent:#08704f;--green:#078d39;--amber:#e58a00;--red:#c52e2e}
+*{box-sizing:border-box}body{margin:0;background:#f3f6f5;color:#111827;font-family:Inter,"Roboto","Arial",sans-serif;-webkit-font-smoothing:antialiased}#app{min-height:100vh;background:#f3f6f5}
+.wrap{max-width:540px;margin:0 auto;padding:0 8px 24px}
+.app-header{height:96px;margin:12px 0 0;padding:10px 27px 9px 31px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:linear-gradient(110deg,#075b45 0%,#08745a 58%,#075943 100%);border-radius:28px 28px 0 0;color:#fff;box-shadow:0 4px 14px rgba(0,60,40,.13)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}.brand-icon{width:66px;height:66px;flex:0 0 66px}.brand-icon svg{width:100%;height:100%;fill:none;stroke:#fff;stroke-width:2.35;stroke-linecap:round;stroke-linejoin:round}
+.brand-text h1{font-size:32px;line-height:1.05;letter-spacing:-.7px;font-weight:800;color:#fff;margin:0 0 5px}.brand-text p{font-size:14px;line-height:1.25;color:#f0f8f4;margin:0;white-space:nowrap}
+.header-actions{display:flex;align-items:center;gap:17px;color:#fff;flex:0 0 auto}.header-info{width:25px;height:25px;border:2px solid #fff;border-radius:50%;display:grid;place-items:center;font-size:16px;font-weight:800}.header-moon{font-size:27px;line-height:1}
+.grid{display:grid;grid-template-columns:1fr;gap:12px}
+.grid>section:first-child{padding:0 18px 22px;border:1px solid #e2e9e6;border-top:0;border-radius:0 0 26px 26px;background:#fff;box-shadow:0 5px 12px rgba(14,52,39,.12);min-height:900px}
+.stepper{height:103px;display:flex;align-items:flex-start;justify-content:center;padding:17px 14px 0;gap:0}
+.step{display:flex;flex-direction:column;align-items:center;gap:7px;z-index:1;min-width:104px;color:#182434}.step span{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#e8ebee;color:#111827;font-size:23px;font-weight:800;box-shadow:0 1px 2px rgba(0,0,0,.08)}.step strong{font-size:18px;line-height:1.1;font-weight:600;white-space:nowrap}.step.active span{background:linear-gradient(135deg,#0a9b3c,#007b30);color:white}.step.active strong{color:#07852f;font-weight:800}.step-line{height:3px;background:#c7cdd0;flex:1;margin:17px -3px 0;max-width:78px}
+.patient-heading{font-size:0!important;height:0;margin:0!important;overflow:hidden}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;padding:0 3px}.field{min-width:0}.field label{display:block;font-size:16px;font-weight:600;color:#101827;margin-bottom:5px}
+.field input,.field select{width:100%;height:42px;border:1.5px solid #b8c2cb;border-radius:11px;background:#fff;color:#111827;font-size:19px;font-weight:750;text-align:center;padding:7px 10px;box-shadow:inset 0 1px 2px rgba(0,0,0,.035)}
+.field.full{grid-column:1/-1}.renal-mode-field{grid-column:1/-1!important;margin-bottom:-5px}.mode-options{display:grid;grid-template-columns:1.15fr 1fr;gap:3px;width:100%;margin:0}.mode-option{height:42px;min-height:42px;border:0;border-radius:11px;background:#eceeef;color:#111827;font-size:15px;font-weight:650}.mode-option:has(input:checked){background:#c9f1d4;color:#075e35;box-shadow:none;border:0}.mode-option input{display:none}
+#egfrField{grid-column:1}#acr{grid-column:2}#creatinineField{grid-column:1/-1}#creatinineField .input-with-unit{display:grid;grid-template-columns:1fr 110px;gap:8px}#creatinineField .input-with-unit input,#creatinineField .input-with-unit select{width:100%}#egfrEstimate{font-size:11px}
+.sex-options{display:grid;grid-template-columns:1fr 1fr;gap:9px}.sex-option{height:42px;border-radius:11px;background:#eceeef;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:700;color:#111827;margin:0;border:1px solid transparent}.sex-option:has(input:checked){background:linear-gradient(110deg,#08a32f,#006b47);color:#fff}.sex-option input{display:none}.sex-data-holder{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
+#k{height:42px;text-align:center;font-size:20px;font-weight:800;border:1.5px solid #e58a00;background:#fff7e7;color:#7d240d}#k:placeholder-shown{border-color:#b8c2cb;background:#fff}
+.section-title{font-size:20px;font-weight:800;line-height:1.2;color:#111827;margin:16px 0 9px;display:flex;align-items:center;gap:10px}
+.check-grid{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-around;gap:5px 9px;padding:0 0 4px}
+.check{display:flex;align-items:center;gap:6px;padding:2px 0;margin:0;border:0;background:transparent;border-radius:0;font-size:16px;line-height:1.2;color:#111827;white-space:nowrap}
+.check:has(input:checked){background:transparent;border:0}.check input{appearance:none;width:23px;height:23px;min-width:23px;border:1.5px solid #9eabb5;border-radius:6px;background:#fff;margin:0;position:relative}.check input:checked{background:#07963c;border-color:#07963c}.check input:checked:after{content:"";position:absolute;left:6px;top:2px;width:6px;height:12px;border:solid white;border-width:0 3px 3px 0;transform:rotate(45deg)}.check label{font-size:16px;font-weight:500;color:#111827;margin:0}
+#other-referral-panel{margin:7px 0 0;border:1px solid #e1e8ed;border-radius:13px;background:#fff;box-shadow:0 2px 5px rgba(20,45,60,.05);overflow:hidden}#other-referral-panel summary{padding:10px 14px;font-size:20px;line-height:1.2;font-weight:800;color:#111827;background:#fff;display:flex;align-items:center;gap:10px}#other-referral-panel summary span{font-size:0}#other-referral-panel summary:after{content:"⌄";font-size:23px;color:#111827;margin-left:auto}.other-referral-inner{padding:6px 14px 12px}.other-referral-group>strong{font-size:13px}.other-referral-group .check{white-space:normal}.other-referral-note{font-size:11px}
+.actions{display:flex;gap:9px;margin:26px 0 0}.btn{border:0;border-radius:10px;padding:10px 13px;font-weight:800;cursor:pointer}.actions .primary{flex:1;width:100%;height:63px;border-radius:15px;background:linear-gradient(110deg,#075b45,#007454);font-size:22px;font-weight:800;box-shadow:none}.actions .primary:after{content:"→";font-size:31px;line-height:0;margin-left:14px;vertical-align:-2px}.actions .secondary{display:none}
+.field:has(#kfreCalibration){display:none!important}#initialMessage{display:none!important}.grid>section#resultsCard.hidden{display:none!important}.grid>section#resultsCard{padding:18px;border-radius:20px;background:#fff}
+@media(max-width:520px){.wrap{padding:0 8px 20px}.app-header{height:84px;margin-top:12px;padding:8px 26px 8px 28px;border-radius:27px 27px 0 0}.brand{gap:10px}.brand-icon{width:62px;height:62px;flex-basis:62px}.brand-text h1{font-size:31px}.brand-text p{font-size:13px}.header-actions{gap:15px}.grid>section:first-child{padding:0 18px 22px;min-height:900px}.stepper{height:105px;padding-top:17px}.step{min-width:100px}.step span{width:39px;height:39px;font-size:22px}.step strong{font-size:17px}.step-line{margin-top:17px;max-width:62px}.fields{gap:12px 24px}}
+@media(max-width:390px){.brand-icon{width:52px;height:52px;flex-basis:52px}.brand-text h1{font-size:27px}.brand-text p{font-size:11px}.header-actions{gap:10px}.step{min-width:88px}.step strong{font-size:15px}.step-line{max-width:42px}.check-grid{column-gap:7px}.check label{font-size:14px}}
+
+
+.field.full:has(#k){display:grid;grid-template-columns:minmax(0,1fr) 156px;align-items:center;gap:12px;padding:10px 3px;border-top:1px solid #e8eeeb;border-bottom:1px solid #e8eeeb;margin-top:2px}
+.field.full:has(#k)>label{font-size:20px;font-weight:800;margin:0}
+.field.full:has(#k)>label:after{content:" (mmol/L)";font-size:14px;font-weight:500}
+.field.full:has(#k) #k{width:100%}
+#resultsCard .result-hero{margin-top:0}
+.section-title:not(.therapy-section-title){letter-spacing:-.3px}
 
 </style>
 </head>
 <body>
 
 <div id="app"><div class="wrap">
-<header class="top app-header">
-  <div class="brand">
-    <div class="brand-icon" aria-hidden="true">
-      <svg viewBox="0 0 64 64">
-        <path d="M22 7C12 7 6 16 7 28c1 10 7 17 15 17 6 0 10-5 10-11V19C32 12 28 7 22 7Z"/>
-        <path d="M42 7c10 0 16 9 15 21-1 10-7 17-15 17-6 0-10-5-10-11V19c0-7 4-12 10-12Z"/>
-        <path d="M23 45v12m18-12v12M32 34v23"/>
-      </svg>
-    </div>
-    <div class="brand-text">
-      <h1>Drive CKD</h1>
-      <p>Apoio à decisão na Doença Renal Crónica</p>
-    </div>
-  </div>
-  <div class="header-actions">
-    <span class="header-info" title="Apoio à decisão clínica; não substitui julgamento clínico" aria-label="Informação">i</span>
-    <span class="header-moon" aria-hidden="true">☾</span>
-  </div>
-</header>
+<header class="top app-header"><div class="brand">
+<div class="brand-icon" aria-hidden="true"><svg viewBox="0 0 64 64">
+<path d="M22 7C12 7 6 16 7 28c1 10 7 17 15 17 6 0 10-5 10-11V19C32 12 28 7 22 7Z"/>
+<path d="M42 7c10 0 16 9 15 21-1 10-7 17-15 17-6 0-10-5-10-11V19c0-7 4-12 10-12Z"/>
+<path d="M23 45v12m18-12v12M32 34v23"/></svg></div>
+<div class="brand-text"><h1>Drive CKD</h1><p>Apoio à decisão na Doença Renal Crónica</p></div></div>
+<div class="header-actions"><span class="header-info" title="Apoio à decisão clínica">i</span><span class="header-moon">☾</span></div></header>
 <div class="grid">
 <section class="card">
-<h2>Dados do doente</h2>
-<div class="fields">
+<div class="stepper" aria-label="Etapas da avaliação">
+<div class="step active"><span>1</span><strong>Dados clínicos</strong></div><div class="step-line"></div>
+<div class="step"><span>2</span><strong>Resultados</strong></div><div class="step-line"></div>
+<div class="step"><span>3</span><strong>Orientação</strong></div></div>
+<h2 class="patient-heading">Dados do doente</h2>
+<div class="fields"><div class="field"><label for="age">Idade (anos)</label><input id="age" type="number" min="18" max="100" step="1" placeholder="Introduzir idade"></div>
+<div class="field"><label>Sexo</label><div class="sex-options">
+<label class="sex-option"><input type="radio" name="sexChoice" value="male"><span>♂ M</span></label>
+<label class="sex-option"><input type="radio" name="sexChoice" value="female"><span>♀ F</span></label>
+</div><div class="sex-data-holder"><div class="field"><label for="sex">Sexo</label><select id="sex"><option value="" selected>Selecionar</option><option value="female">Feminino</option><option value="male">Masculino</option></select></div></div></div>
 <div class="field full renal-mode-field"><label>Função renal</label><div class="mode-options" role="radiogroup" aria-label="Forma de introdução da função renal"><label class="mode-option"><input type="radio" name="renalInputMode" id="renalModeEgfr" value="egfr" checked><span>TFGe conhecida</span></label><label class="mode-option"><input type="radio" name="renalInputMode" id="renalModeCreatinine" value="creatinine"><span>Calcular pela Cr</span></label></div></div>
 <div class="field" id="egfrField"><label for="egfr">TFGe (mL/min/1,73 m²)</label><input id="egfr" type="number" min="1" max="150" step="any" placeholder="Introduzir TFGe"></div>
 <div class="field hidden" id="creatinineField"><label for="creatinine">Creatinina sérica</label><div class="input-with-unit"><input id="creatinine" type="number" min="0.1" max="30" step="0.1" placeholder="Introduzir creatinina"><select id="creatinineUnit" aria-label="Unidade da creatinina"><option value="mgdl" selected>mg/dL</option><option value="umol">µmol/L</option></select></div><div class="small" id="egfrEstimate" aria-live="polite">Introduza creatinina, idade e sexo para calcular a TFGe.</div></div>
 <div class="field"><label for="acr">ACR (mg/g)</label><input id="acr" type="number" min="0" step="any" placeholder="Introduzir ACR"></div>
-<div class="field"><label for="age">Idade (anos)</label><input id="age" type="number" min="18" max="100" step="1" placeholder="Introduzir idade"></div>
-<div class="field"><label for="sex">Sexo</label><select id="sex"><option value="" selected>Selecionar</option><option value="female">Feminino</option><option value="male">Masculino</option></select></div>
+
+
 <div class="field full"><label for="k">Potássio (mmol/L)</label><input id="k" type="number" min="2.5" max="7" step="0.1" placeholder="Introduzir potássio"></div>
 <div class="field full"><label for="kfreCalibration">Calibração KFRE</label><select id="kfreCalibration"><option value="non-na" selected>Não norte-americana — recomendada para Portugal</option><option value="na">Norte-americana</option></select></div>
 </div>
-<div class="section-title">Diabetes</div>
-<div class="check"><input id="dm1" type="checkbox" onchange="toggleDiabetes('dm1')"><label for="dm1">DM tipo 1</label></div><div class="check"><input id="dm2" type="checkbox" onchange="toggleDiabetes('dm2')"><label for="dm2">DM tipo 2</label></div>
-<div class="section-title">Comorbilidades</div><div class="check"><input id="hf" type="checkbox"><label for="hf">Insuficiência cardíaca</label></div><div class="check"><input id="ascvd" type="checkbox"><label for="ascvd">Doença cardiovascular aterosclerótica</label></div><div class="check"><input id="htn" type="checkbox"><label for="htn">Hipertensão arterial</label></div><div class="check"><input id="obesity" type="checkbox"><label for="obesity">Obesidade (IMC ≥30 kg/m²)</label></div>
+<div class="section-title">Comorbilidades</div><div class="check-grid">
+<div class="check"><input id="dm1" type="checkbox" onchange="toggleDiabetes('dm1')"><label for="dm1">DM1</label></div>
+<div class="check"><input id="dm2" type="checkbox" onchange="toggleDiabetes('dm2')"><label for="dm2">DM2</label></div>
+<div class="check"><input id="htn" type="checkbox"><label for="htn">HTA</label></div>
+<div class="check"><input id="hf" type="checkbox"><label for="hf">IC</label></div>
+<div class="check"><input id="ascvd" type="checkbox"><label for="ascvd">DCVA</label></div>
+<div class="check"><input id="obesity" type="checkbox"><label for="obesity">Obesidade</label></div></div>
+
+<div class="section-title">Terapêutica atual</div>
+<div class="check"><input id="sglt2" type="checkbox"><label for="sglt2">SGLT2i</label></div><div class="check"><input id="raas" type="checkbox"><label for="raas">IECA/ARA II</label></div><div class="check"><input id="finer" type="checkbox"><label for="finer">Finerenona</label></div><div class="check"><input id="statin" type="checkbox"><label for="statin">Estatina</label></div><div class="check"><input id="glp1" type="checkbox"><label for="glp1">Agonistas do recetor GLP-1 (AR GLP-1)</label></div>
 <details id="other-referral-panel" class="other-referral-panel">
 <summary>➕ Outros critérios de referenciação <span>opcional</span></summary>
 <div class="other-referral-inner">
@@ -332,11 +251,9 @@ input:focus,select:focus{border-color:#16815d;box-shadow:0 0 0 3px rgba(22,129,9
   <div class="other-referral-note final-note"><strong>Nota:</strong> estes critérios são complementares à matriz TFGe + ACR + idade. A prioridade pode ser aumentada, mas nunca reduzida. Situações explicitamente dirigidas à Urgência não são tratadas como referenciação nefrológica programada.</div>
 </div>
 </details>
-<div class="section-title">Terapêutica atual</div>
-<div class="check"><input id="sglt2" type="checkbox"><label for="sglt2">SGLT2i</label></div><div class="check"><input id="raas" type="checkbox"><label for="raas">IECA/ARA II</label></div><div class="check"><input id="finer" type="checkbox"><label for="finer">Finerenona</label></div><div class="check"><input id="statin" type="checkbox"><label for="statin">Estatina</label></div><div class="check"><input id="glp1" type="checkbox"><label for="glp1">Agonistas do recetor GLP-1 (AR GLP-1)</label></div>
 <div class="actions"><button class="btn primary" onclick="calculate()">Avaliar</button><button class="btn secondary" onclick="resetForm()">Repor</button></div>
 </section>
-<section class="card">
+<section class="card hidden" id="resultsCard">
 <div class="result-hero"><div class="result-head"><div><div class="hero-label">Classificação renal</div><div id="stage" class="stage">—</div><div id="heroSub" class="hero-sub">Introduza os dados para classificar a DRC</div></div><div id="riskPills" class="pillrow risk-pills"></div></div></div>
 <div id="initialMessage" class="recommend"><h3>Introduza os dados clínicos</h3><p>Preencha os campos necessários e selecione <strong>Avaliar</strong> para obter a classificação da DRC, o KFRE e as recomendações clínicas.</p></div>
 <div id="resultsContent" class="hidden">
@@ -474,6 +391,13 @@ updateInstallUI();
 if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
 function get(id){return document.getElementById(id)}
+document.querySelectorAll('input[name="sexChoice"]').forEach(el=>el.addEventListener('change',()=>{
+ const s=get('sex');if(s){s.value=el.value;updateEgfrEstimate();}
+}));
+get('sex')?.addEventListener('change',()=>{
+ document.querySelectorAll('input[name="sexChoice"]').forEach(el=>el.checked=el.value===get('sex').value);
+});
+
 
 // Estatísticas agregadas: apenas um POST sem dados clínicos, e só após consentimento explícito.
 const STATS_ENDPOINT='https://drive-ckd-counter.marciosrviegas.workers.dev';
@@ -713,7 +637,7 @@ function showPotassiumAlertBeforeFullAssessment(k){
   if(!Number.isFinite(k))return false;
   if(k<3.0){
     get('initialMessage').classList.add('hidden');
-    get('resultsContent').classList.remove('hidden');
+    get('resultsContent').classList.remove('hidden');get('resultsCard')?.classList.remove('hidden');
     get('summarySection').classList.add('hidden');
     get('referralSection').classList.add('hidden');
     get('therapyTitle').classList.add('hidden');
@@ -774,9 +698,9 @@ function calculate(){
 const dm1=get('dm1').checked,dm2=get('dm2').checked,dm2Active=dm2&&!dm1,hf=get('hf').checked,ascvd=get('ascvd').checked,htn=get('htn').checked,obesity=get('obesity').checked,sglt2=get('sglt2').checked,raas=get('raas').checked,finer=get('finer').checked,statin=get('statin').checked,glp1=get('glp1').checked,adpkd=get('refCysticDisease').checked;
 const selectedRaasIndications=[htn?'HTA':null,hf?'insuficiência cardíaca (conforme o fenótipo, incluindo IC com fração de ejeção reduzida)':''].filter(Boolean);
 const selectedSglt2Indications=[dm2Active?'DM2':null,hf?'insuficiência cardíaca':null,acr>=200?'ACR ≥200 mg/g':null,(egfr>=20&&egfr<=45)?'TFGe 20–45 mL/min/1,73 m²':null].filter(Boolean);
-if(!Number.isFinite(egfr)||!Number.isFinite(acr)||!Number.isFinite(age)||!sex||(renalInputMode()==='egfr'&&get('egfr').value.trim()==='')||(renalInputMode()==='creatinine'&&get('creatinine').value.trim()==='')||get('acr').value.trim()===''||get('age').value.trim()===''){get('stage').textContent='—';get('heroSub').textContent='Introduza TFGe ou creatinina, ACR, idade e sexo para iniciar a avaliação';get('riskPills').innerHTML='';get('urgent').classList.add('hidden');get('recommendations').innerHTML='';get('therapyTitle').classList.add('hidden');get('initialMessage').classList.remove('hidden');get('resultsContent').classList.add('hidden');get('referralSection').classList.add('hidden');get('summarySection').classList.add('hidden');get('clinicalSummary').innerHTML='';if(showPotassiumAlertBeforeFullAssessment(k))return;return}
+if(!Number.isFinite(egfr)||!Number.isFinite(acr)||!Number.isFinite(age)||!sex||(renalInputMode()==='egfr'&&get('egfr').value.trim()==='')||(renalInputMode()==='creatinine'&&get('creatinine').value.trim()==='')||get('acr').value.trim()===''||get('age').value.trim()===''){get('stage').textContent='—';get('heroSub').textContent='Introduza TFGe ou creatinina, ACR, idade e sexo para iniciar a avaliação';get('riskPills').innerHTML='';get('urgent').classList.add('hidden');get('recommendations').innerHTML='';get('therapyTitle').classList.add('hidden');get('initialMessage').classList.remove('hidden');get('resultsContent').classList.add('hidden');get('resultsCard')?.classList.add('hidden');get('referralSection').classList.add('hidden');get('summarySection').classList.add('hidden');get('clinicalSummary').innerHTML='';if(showPotassiumAlertBeforeFullAssessment(k))return;return}
 if(egfr<1||egfr>150||acr<0||age<18||age>100||!Number.isInteger(age)||(renalInputMode()==='creatinine'&&(!Number.isFinite(parseFloat(get('creatinine').value))||parseFloat(get('creatinine').value)<=0||(get('creatinineUnit').value==='mgdl'&&parseFloat(get('creatinine').value)>30)||(get('creatinineUnit').value==='umol'&&parseFloat(get('creatinine').value)>2652)))||(kKnown&&(!Number.isFinite(k)||k<1.0||k>7))){get('initialMessage').classList.remove('hidden');get('resultsContent').classList.add('hidden');get('referralSection').classList.add('hidden');get('summarySection').classList.add('hidden');get('initialMessage').innerHTML='<h3>Verifique os dados introduzidos</h3><p>Valores fora dos intervalos previstos: TFGe 1–150 mL/min/1,73 m² (se selecionada); creatinina positiva e plausível (se selecionada); ACR ≥0 mg/g; idade inteira entre 18–100 anos; potássio 1,0–7,0 mmol/L quando preenchido. Confirme os valores e volte a selecionar <strong>Avaliar</strong>.</p>';if(showPotassiumAlertBeforeFullAssessment(k))return;return}
-get('initialMessage').classList.add('hidden');get('resultsContent').classList.remove('hidden');get('therapyTitle').classList.remove('hidden');
+get('initialMessage').classList.add('hidden');get('resultsContent').classList.remove('hidden');get('therapyTitle').classList.remove('hidden');get('resultsCard')?.classList.remove('hidden');
 const g=egfr>=90?'G1':egfr>=60?'G2':egfr>=45?'G3a':egfr>=30?'G3b':egfr>=15?'G4':'G5',a=acr<30?'A1':acr<300?'A2':'A3';get('stage').textContent=`${g} · ${a}`;const renalContext=(g==='G1'||g==='G2')?(a==='A1'?'TFGe preservada · G1/G2 A1 não demonstra DRC por si só':'TFGe preservada · G1/G2 A2/A3 corresponde a DRC se a albuminúria for persistente ≥3 meses'):(a==='A3'?'Risco de progressão aumentado · integrar TFGe, albuminúria e KFRE':'Integrar TFGe, albuminúria, evolução e contexto clínico');get('heroSub').textContent=(renalInputMode()==='creatinine'?`TFGe estimada por CKD-EPI 2021: ${egfr.toFixed(0)} mL/min/1,73 m² · `:'')+renalContext;
 let pills=[];if(dm1)pills.push('DM1');if(dm2)pills.push('DM2');if(hf)pills.push('IC');if(ascvd)pills.push('DCV aterosclerótica');if(obesity)pills.push('Obesidade');if(acr>=300)pills.push('A3');else if(acr>=30)pills.push('A2');if(kKnown&&k>=5)pills.push('K elevado');get('riskPills').innerHTML=pills.map(x=>`<span class="pill">${esc(x)}</span>`).join('');
 let rec=[];
