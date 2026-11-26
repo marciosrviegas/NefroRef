@@ -327,6 +327,98 @@
   .check-grid .check label{font-size:12px!important}
 }
 
+
+/* Agrupamento funcional da função renal */
+.renal-function-group{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:11px!important;
+  width:100%!important;
+  padding:14px 13px 15px!important;
+  margin:2px 0 1px!important;
+  border:1px solid #dfe9e3!important;
+  border-radius:15px!important;
+  background:#f9fcfa!important;
+  box-shadow:0 2px 7px rgba(20,55,39,.035)!important;
+}
+.renal-group-title{
+  margin:0!important;
+  color:#14543d!important;
+  font-family:inherit!important;
+  font-size:17px!important;
+  font-weight:800!important;
+  line-height:1.25!important;
+}
+.renal-function-group>.field{
+  display:flex!important;
+  flex-direction:column!important;
+  width:100%!important;
+  gap:5px!important;
+  margin:0!important;
+}
+.renal-function-group>.field>label{
+  display:block!important;
+  font-family:inherit!important;
+  font-size:14px!important;
+  line-height:1.3!important;
+  font-weight:650!important;
+  color:#17251f!important;
+  margin:0!important;
+}
+.renal-function-group .mode-options{
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  gap:7px!important;
+  width:100%!important;
+}
+.renal-function-group .mode-option{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:43px!important;
+  height:auto!important;
+  padding:9px 8px!important;
+  border-radius:10px!important;
+  font-family:inherit!important;
+  font-size:13px!important;
+  line-height:1.25!important;
+  font-weight:650!important;
+  text-align:center!important;
+  white-space:normal!important;
+}
+.renal-function-group .field input:not([type=radio]),
+.renal-function-group .field select{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-width:0!important;
+  height:45px!important;
+  min-height:45px!important;
+  padding:10px 13px!important;
+  border:1.4px solid #b8c5bf!important;
+  border-radius:11px!important;
+  background:#fff!important;
+  color:#17251f!important;
+  font-family:inherit!important;
+  font-size:16px!important;
+  line-height:1.25!important;
+  font-weight:500!important;
+  text-align:left!important;
+}
+.renal-function-group .input-with-unit{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 112px!important;
+  gap:8px!important;
+  width:100%!important;
+}
+.renal-function-group .small{
+  font-size:12px!important;
+  line-height:1.4!important;
+  color:#68766f!important;
+}
+.renal-function-group .field.hidden,
+.fields>.field.hidden,
+.hidden{display:none!important}
+
 </style>
 </head>
 <body>
@@ -348,10 +440,13 @@
 <label class="sex-option"><input type="radio" name="sexChoice" value="male"><span>♂ M</span></label>
 <label class="sex-option"><input type="radio" name="sexChoice" value="female"><span>♀ F</span></label>
 </div><div class="sex-data-holder"><div class="field"><label for="sex">Sexo</label><select id="sex"><option value="" selected>Selecionar</option><option value="female">Feminino</option><option value="male">Masculino</option></select></div></div></div>
-<div class="field full renal-mode-field"><label>Função renal</label><div class="mode-options" role="radiogroup" aria-label="Forma de introdução da função renal"><label class="mode-option"><input type="radio" name="renalInputMode" id="renalModeEgfr" value="egfr" checked><span>TFGe conhecida</span></label><label class="mode-option"><input type="radio" name="renalInputMode" id="renalModeCreatinine" value="creatinine"><span>Calcular pela Cr</span></label></div></div>
+<div class="renal-function-group" aria-label="Função renal">
+<div class="renal-group-title">Função renal</div>
+<div class="field renal-mode-field"><div class="mode-options" role="radiogroup" aria-label="Forma de introdução da função renal"><label class="mode-option"><input type="radio" name="renalInputMode" id="renalModeEgfr" value="egfr" checked><span>Introduzir TFGe</span></label><label class="mode-option"><input type="radio" name="renalInputMode" id="renalModeCreatinine" value="creatinine"><span>Calcular pela creatinina</span></label></div></div>
 <div class="field" id="egfrField"><label for="egfr">TFGe (mL/min/1,73 m²)</label><input id="egfr" type="number" min="1" max="150" step="any" placeholder="Introduzir TFGe"></div>
 <div class="field hidden" id="creatinineField"><label for="creatinine">Creatinina sérica</label><div class="input-with-unit"><input id="creatinine" type="number" min="0.1" max="30" step="0.1" placeholder="Introduzir creatinina"><select id="creatinineUnit" aria-label="Unidade da creatinina"><option value="mgdl" selected>mg/dL</option><option value="umol">µmol/L</option></select></div><div class="small" id="egfrEstimate" aria-live="polite">Introduza creatinina, idade e sexo para calcular a TFGe.</div></div>
-<div class="field"><label for="acr">ACR (mg/g)</label><input id="acr" type="number" min="0" step="any" placeholder="Introduzir ACR"></div>
+<div class="field"><label for="acr">RAC (mg/g)</label><input id="acr" type="number" min="0" step="any" placeholder="Introduzir RAC"></div>
+</div>
 
 
 <div class="field full"><label for="k">Potássio (mmol/L)</label><input id="k" type="number" min="2.5" max="7" step="0.1" placeholder="Introduzir potássio"></div>
