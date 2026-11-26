@@ -3,36 +3,119 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#075844">
+<meta name="theme-color" content="#175cd3">
 <meta name="description" content="Apoio à decisão para referenciação de doentes à Consulta de Nefrologia, segundo PS.NEFR.046.">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
 <title>NefroRef • Referenciação</title>
 <style>
-:root{--brand:#08765c;--brand-dark:#075844;--brand-soft:#e8f5ef;--blue:#08765c;--navy:#153d35;--bg:#f3f7f5;--card:#fff;--text:#172522;--muted:#62736e;--line:#dce7e2;--green:#d9f2b0;--pink:#f4dddd;--yellow:#fff0a8;--orange:#f4b36c;--red:#c92f3b;--shadow:0 5px 18px rgba(20,55,43,.07)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
-.app{min-height:100vh}.top{background:linear-gradient(120deg,#075844,#0b8062);color:white;padding:19px 20px 18px;position:sticky;top:0;z-index:10;box-shadow:0 4px 18px rgba(4,65,48,.18)}.top:after{content:"";display:block;position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,#b9e6d2,transparent)}
-.top h1{font-size:25px;letter-spacing:-.5px;margin:0 0 4px;font-weight:800}.top p{margin:0;opacity:.9;font-size:13px}.wrap{max-width:860px;margin:auto;padding:18px 16px 36px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin:0 0 15px;box-shadow:var(--shadow)}
-h2{font-size:18px;letter-spacing:-.25px;margin:0 0 14px;font-weight:800;display:flex;align-items:center;gap:9px}h2:before{content:"";display:inline-block;width:4px;height:21px;border-radius:4px;background:var(--brand);flex:none}h3{font-size:14px;margin:19px 0 10px;color:var(--brand-dark);font-weight:800;text-transform:uppercase;letter-spacing:.45px}.intro{font-size:14px;line-height:1.6;color:#475b54;margin:0 0 13px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}@media(max-width:620px){.grid{grid-template-columns:1fr}}
-label{display:block;font-size:13px;font-weight:700;color:#344b43}input,select,button{font:inherit}input[type=number],select{width:100%;margin-top:7px;border:1px solid #cbd9d2;border-radius:11px;padding:12px;background:#fff;color:var(--text);outline:none;transition:border-color .15s,box-shadow .15s}input[type=number]:focus,select:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(8,118,92,.12)}
-.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}@media(max-width:620px){.checks{grid-template-columns:1fr}}
-.check{display:flex;align-items:flex-start;gap:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfdfc;font-weight:600;font-size:13px;line-height:1.4;color:#344b43;min-height:48px}.check:has(input:checked){background:var(--brand-soft);border-color:#9bcdb8}.check input{margin:2px 0 0;accent-color:var(--brand);width:17px;height:17px;flex:none}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.primary{background:linear-gradient(120deg,#08765c,#075844);color:white;border:0;border-radius:13px;padding:14px 22px;font-weight:800;cursor:pointer;box-shadow:0 5px 12px rgba(8,118,92,.18);min-height:48px}.primary:hover{filter:brightness(1.04)}.secondary{background:white;color:var(--navy);border:1px solid #cbd9d2;border-radius:13px;padding:13px 20px;font-weight:700;cursor:pointer;min-height:48px}
-.result{display:none;border-radius:18px;padding:20px;margin:0 0 16px;border:1px solid #b7c4d6;box-shadow:var(--shadow);scroll-margin-top:100px}.result.show{display:block}.badge{display:inline-block;padding:7px 12px;border-radius:999px;font-weight:900;font-size:12px}.result h2{margin:12px 0 8px}.reason{font-size:14px;line-height:1.65}.small{font-size:12px;color:var(--muted);line-height:1.55}.danger{background:#fff1f1;border-color:#efb6b9}.warn{background:#fff7e9;border-color:#f0d09a}.success{background:#eff8f2;border-color:#b9ddc7}
-.pills{display:flex;gap:7px;flex-wrap:wrap}.pill{font-size:12px;background:#edf6f2;border:1px solid #d0e7dc;border-radius:999px;padding:5px 9px}
-.note{background:#f1f7f4;border:1px solid #dcebe3;border-left:4px solid var(--brand);border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.55;color:#38554a}
-details{border-top:1px solid var(--line);padding:13px 0}details:first-of-type{border-top:0}summary{cursor:pointer;font-weight:800;color:#24483d;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px}summary::-webkit-details-marker{display:none}summary:after{content:"＋";font-size:18px;color:var(--brand);font-weight:500}details[open]>summary:after{content:"−"}details>div,details>p,details>ul{margin-top:13px}
-.matrix{overflow:auto;border-radius:10px}.matrix table{border-collapse:separate;border-spacing:0;width:100%;min-width:720px;font-size:12px}.matrix th,.matrix td{border-right:1px solid #d5dfda;border-bottom:1px solid #d5dfda;padding:9px 7px;text-align:center}.matrix th{background:#edf3f0;color:#28473c}.matrix tr:first-child th{border-top:1px solid #d5dfda}.matrix th:first-child,.matrix td:first-child{border-left:1px solid #d5dfda}.c-green{background:var(--green)}.c-pink{background:var(--pink)}.c-yellow{background:var(--yellow)}.c-orange{background:var(--orange)}.c-red{background:var(--red);color:white;font-weight:800}
-footer{font-size:11px;color:#71817b;padding:14px 4px 30px;line-height:1.55}.hidden{display:none}
-@media(max-width:520px){.top{padding:16px 16px}.top h1{font-size:23px}.wrap{padding:12px 11px 28px}.card{padding:16px;border-radius:15px;margin-bottom:12px}h2{font-size:17px}.actions{display:grid;grid-template-columns:1fr}.primary,.secondary{width:100%}.result{padding:17px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+:root{
+  --green-950:#064e3b;--green-900:#075844;--green-800:#0b6b50;
+  --green-700:#12805b;--green-100:#e8f5ed;--green-50:#f3faf5;
+  --teal-700:#087f83;--blue-50:#eaf5fb;
+  --bg:#f4f7f6;--card:#fff;--text:#14231f;--muted:#61716c;
+  --line:#e1e9e5;--amber-50:#fff5df;--amber-200:#f4d48c;
+  --red-50:#fff0ef;--red-200:#f2b9b5;
+  --green:#d9f2b0;--pink:#f4dddd;--yellow:#fff2a8;--orange:#f2a45d;--red:#d94343;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
+.app{min-height:100vh}
+.top{
+  background:linear-gradient(118deg,#075844 0%,#08745a 58%,#0c8064 100%);
+  color:#fff;padding:23px 20px 21px;position:sticky;top:0;z-index:10;
+  box-shadow:0 5px 18px #064e3b20;border-radius:0 0 22px 22px
+}
+.top h1{font-size:clamp(23px,4vw,29px);font-weight:800;letter-spacing:-.55px;margin:0 0 5px}
+.top p{margin:0;opacity:.9;font-size:13px;line-height:1.4}
+.wrap{max-width:900px;margin:auto;padding:18px 16px 30px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:19px;
+  padding:19px;margin:0 0 15px;box-shadow:0 3px 13px #183d2d0b
+}
+h2{font-size:18px;line-height:1.25;letter-spacing:-.25px;margin:0 0 13px;color:#172b24}
+h3{font-size:15px;line-height:1.3;margin:18px 0 10px;color:#1a3b2f}
+.intro{font-size:14px;line-height:1.6;color:#53645d}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+@media(max-width:620px){.grid{grid-template-columns:1fr}}
+label{display:block;font-size:13px;font-weight:700;color:#34483f}
+input,select,button{font:inherit}
+input[type=number],select{
+  width:100%;margin-top:7px;border:1px solid #d3dfd9;border-radius:12px;
+  padding:12px 13px;background:#fff;color:var(--text);min-height:45px;
+  outline:none;transition:border-color .15s,box-shadow .15s
+}
+input[type=number]:focus,select:focus{border-color:#16835e;box-shadow:0 0 0 3px #16835e1c}
+.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+@media(max-width:620px){.checks{grid-template-columns:1fr}}
+.check{
+  display:flex;align-items:flex-start;gap:10px;padding:11px 12px;
+  border:1px solid #e2eae5;border-radius:12px;background:#fbfdfc;
+  font-weight:600;font-size:13px;line-height:1.4;color:#2c4037;
+  transition:background .15s,border-color .15s
+}
+.check:has(input:checked){background:#edf7f0;border-color:#a9d5b9}
+.check input{margin:2px 0 0;accent-color:#0b8058;width:17px;height:17px;flex:0 0 auto}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 17px}
+.primary{
+  background:linear-gradient(110deg,#075844,#08775b);color:#fff;border:0;
+  border-radius:13px;padding:13px 20px;font-weight:800;cursor:pointer;
+  box-shadow:0 4px 10px #07584420;min-height:48px
+}
+.primary:hover{filter:brightness(1.05)}
+.secondary{
+  background:#fff;color:#075844;border:1px solid #b9d4c7;border-radius:13px;
+  padding:12px 18px;font-weight:700;cursor:pointer;min-height:48px
+}
+.result{display:none;border-radius:18px;padding:19px;margin:0 0 16px;border:1px solid #cbd8d1;box-shadow:0 4px 15px #173b2a0c}
+.result.show{display:block}
+.badge{display:inline-block;padding:7px 12px;border-radius:999px;font-weight:850;font-size:13px}
+.result h2{margin:11px 0 6px;font-size:21px}
+.reason{font-size:14px;line-height:1.6;color:#293b33}
+.small{font-size:12px;color:var(--muted);line-height:1.55}
+.danger{background:var(--red-50);border-color:var(--red-200)}
+.warn{background:var(--amber-50);border-color:var(--amber-200)}
+.success{background:var(--green-50);border-color:#b8d9c3}
+.pills{display:flex;gap:7px;flex-wrap:wrap}
+.pill{font-size:12px;background:#edf6f1;border:1px solid #d4e8dc;border-radius:999px;padding:6px 10px;color:#24523d}
+.note{background:#f0f7f3;border-left:4px solid #16815c;border-radius:0 11px 11px 0;padding:11px 13px;font-size:13px;line-height:1.55;color:#34483e}
+details{border-top:1px solid #e4ebe7;padding:13px 0}
+details:first-of-type{border-top:0}
+summary{cursor:pointer;font-weight:800;color:#164b37;line-height:1.4;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"＋";font-size:18px;color:#16815c;font-weight:500}
+details[open]>summary:after{content:"−"}
+details>div,details>p,details>ul{margin-top:12px}
+.matrix{overflow:auto;border-radius:12px}
+.matrix table{border-collapse:separate;border-spacing:0;width:100%;min-width:720px;font-size:12px;background:white}
+.matrix th,.matrix td{border-right:1px solid #dce5df;border-bottom:1px solid #dce5df;padding:8px;text-align:center}
+.matrix th{background:#edf4f0;color:#234638}
+.matrix tr:first-child th{border-top:1px solid #dce5df}
+.matrix th:first-child,.matrix td:first-child{border-left:1px solid #dce5df}
+.matrix .c-green{background:#dff1e3}
+.matrix .c-pink{background:#f6e5e5}
+.matrix .c-yellow{background:#fff1b9}
+.matrix .c-orange{background:#f4c18e}
+.matrix .c-red{background:#d94b4b;color:white;font-weight:800}
+footer{font-size:11px;color:#75827c;padding:12px 4px 32px;line-height:1.55}
+.hidden{display:none}
+@media(max-width:520px){
+  .top{padding:19px 16px 17px;border-radius:0 0 18px 18px}
+  .wrap{padding:13px 12px 25px}
+  .card{padding:16px;border-radius:17px;margin-bottom:12px}
+  h2{font-size:17px}
+  .check{padding:10px}
+  .actions>*{flex:1}
+  .primary,.secondary{width:100%}
+}
+
 </style>
 </head>
 <body>
 <div class="app">
-<header class="top"><h1>♧ NefroRef</h1><p>Referenciação à Consulta de Nefrologia · Apoio à decisão clínica</p></header>
+<header class="top"><h1>🩺 NefroRef</h1><p>Definição da referenciação à Consulta de Nefrologia</p></header>
 <main class="wrap">
 <section class="card">
 <h2>Triagem rápida</h2>
